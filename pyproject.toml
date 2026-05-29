@@ -9,6 +9,8 @@ dependencies = [
     "retico-core>=2.0.0",
     "retico-vision",
     "rfdetr",
+    "transformers",
+    "supervision",
 ]
 requires-python = ">=3.10"
 authors = [

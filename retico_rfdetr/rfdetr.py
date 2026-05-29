@@ -53,7 +53,13 @@ class RFDETRModule(retico_core.AbstractModule):
     }
 
     def __init__(
-        self, model="small", pretrain=None, use_seg=False, show=False, **kwargs
+        self,
+        model="small",
+        pretrain=None,
+        use_seg=False,
+        show=False,
+        threshold=0.25,
+        **kwargs,
     ):
         """
         Initialize the RFDETR Module
@@ -63,6 +69,7 @@ class RFDETRModule(retico_core.AbstractModule):
             pretrain (str): path to custom checkpoint, only needed if wanting to pass a fine-tuned, otherwise auto-loads COCO weights
             use_seg (bool): use segmentation model variation
             show (bool): whether to display the detection results visually
+            threshold (float): the detection threshold
         """
         super().__init__(**kwargs)
 
@@ -103,6 +110,7 @@ class RFDETRModule(retico_core.AbstractModule):
         self.use_seg = use_seg
         self.queue = deque(maxlen=1)
         self.show = show
+        self.threshold = threshold
 
     def process_update(self, update_message):
         for iu, ut in update_message:
@@ -123,7 +131,7 @@ class RFDETRModule(retico_core.AbstractModule):
             input_iu = self.queue.popleft()
             image = input_iu.payload
 
-            detections = self.model.predict(image, threshold=0.25)
+            detections = self.model.predict(image, threshold=self.threshold)
             labels = [COCO_CLASSES[class_id] for class_id in detections.class_id]
 
             if self.show:

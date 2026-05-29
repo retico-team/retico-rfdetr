@@ -52,7 +52,9 @@ class HFRFDETRModule(retico_core.AbstractModule):
         "large": "stevenbucaille/rf-detr-seg-large",
     }
 
-    def __init__(self, model="medium", show=False, use_seg=False, **kwargs):
+    def __init__(
+        self, model="medium", show=False, use_seg=False, threshold=0.25, **kwargs
+    ):
         """
         Initialize the RFDETR Module
         Args:
@@ -60,6 +62,7 @@ class HFRFDETRModule(retico_core.AbstractModule):
                 options: medium, large
             use_seg (bool): use segmentation model variant
             show (bool): whether to display the detection results visually
+            threshold (float): the detection threshold
         """
         super().__init__(**kwargs)
 
@@ -92,6 +95,7 @@ class HFRFDETRModule(retico_core.AbstractModule):
         self.use_seg = use_seg
         self.queue = deque(maxlen=1)
         self.show = show
+        self.threshold = threshold
 
     def process_update(self, update_message):
         for iu, ut in update_message:
@@ -120,7 +124,7 @@ class HFRFDETRModule(retico_core.AbstractModule):
                 results = self.processor.post_process_instance_segmentation(
                     outputs,
                     target_sizes=[(image.size[1], image.size[0])],
-                    threshold=0.25,
+                    threshold=self.threshold,
                 )[0]
                 if len(results["segments_info"]) == 0:
                     continue
