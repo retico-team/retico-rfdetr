@@ -11,12 +11,19 @@ dependencies = [
     "rfdetr",
     "transformers",
     "supervision",
+    opencv-python",
+    "torch",
 ]
 requires-python = ">=3.10"
 authors = [
-    {name = "Dalton Bilau Goncalves"},
+    {name = "Dalton Bilau Goncalves", email= "daltonbilaugoncalves@gmail.com"},
 ]
 description = "A Retico module for Roboflow's Detection Transformer."
 readme = "README.md"
 license = { file = "LICENSE" }
-keywords = ["real-time", "Roboflow", "object-detection", "Transformer"]
+keywords = [
+    "real-time",
+    "Roboflow",
+    "object-detection",
+    "Transformer"
+]
