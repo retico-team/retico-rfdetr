@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+retico_rfdetr/__init__.py
+retico_rfdetr/hfrfdetr.py
+retico_rfdetr/rfdetr.py
+retico_rfdetr/version.py
+retico_rfdetr.egg-info/PKG-INFO
+retico_rfdetr.egg-info/SOURCES.txt
+retico_rfdetr.egg-info/dependency_links.txt
+retico_rfdetr.egg-info/requires.txt
+retico_rfdetr.egg-info/top_level.txt
