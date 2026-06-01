@@ -1,7 +1,0 @@
-retico-core>=2.0.0
-retico-vision
-rfdetr
-transformers
-supervision
-opencv-python
-torch
