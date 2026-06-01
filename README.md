@@ -4,12 +4,10 @@ A ReTico module for RfDeTr that works with Roboflow's detection models. The webc
 
 ## Installation and requirements
 
-* Install retico_core: 
-```https://github.com/retico-team/retico-core.git```
-* Install the retico-vision package:
-```pip install git+https://github.com/retico-team/retico-vision.git```
+* Install retico_core:
+```pip install git+https://github.com/retico-team/retico-core.git```
 * Install the retico-rfdetr:
-``` pip install git+https://github.com/retico-team/retico-rfdetr.git ```
+```pip install retico-rfdetr```
 
 ## Modules
 
@@ -28,7 +26,7 @@ Uses Roboflow's `rfdetr` package. Recommended for real-time webcam use.
 * `threshold` : Confidence threshold, default to 0.25
 
 ### `HFRFDETRModule` (HuggingFace RF-DETR)
-Uses HuggingFace `transformers` to load RF-DETR models from the Roboflow HuggingFace.
+Uses HuggingFace transformers to load RF-DETR models from the Roboflow HuggingFace.
 
 **Detection model options:** `medium`, `large`
 
