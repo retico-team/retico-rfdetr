@@ -1,4 +1,4 @@
-# Retico Roboflow Detection Transformer Module
+# retico-rfdetr
 
 A ReTico module for RfDeTr that works with Roboflow's detection models. The webcam captures the user information, which passes through the model and outputs the name of the detectable object. The model contains two different types of constructors, one using the original RfDeTr and another using the new Hugging Face model. The native RfDeTr is recommended due to its reliability compared to the current Hugging Face model.
 
@@ -19,11 +19,11 @@ Uses Roboflow's `rfdetr` package. Recommended for real-time webcam use.
 **Segmentation model options:** `nano`, `small`, `medium`, `large`
 
 #### Arguments:
-* `model` : Model size to use, defaults to small
-* `pretain` : Path to custom checkpoint, defaults to COCO weights
-* `use_seg` : Segmentation model variation, defaults to False
-* `show` : Displayable output window, defaults to False
-* `threshold` : Confidence threshold, default to 0.25
+* `model` (str): Model size to use, defaults to small
+* `pretain` (str): Path to custom checkpoint, defaults to COCO weights
+* `use_seg` (bool): Segmentation model variation, defaults to False
+* `show` (bool): Displayable output window, defaults to False
+* `threshold` (float): Confidence threshold, default to 0.25
 
 ### `HFRFDETRModule` (HuggingFace RF-DETR)
 Uses HuggingFace transformers to load RF-DETR models from the Roboflow HuggingFace.
@@ -33,11 +33,11 @@ Uses HuggingFace transformers to load RF-DETR models from the Roboflow HuggingFa
 **Segmentation model options:** `medium`, `large`
 
 #### Arguments:
-* `model` : Model size to use, defaults to small
-* `pretain` : Path to custom checkpoint, defaults to COCO weights
-* `use_seg` : Segmentation model variation, defaults to False
-* `show` : Displayable output window, defaults to False
-* `threshold` : Confidence threshold, default to 0.25
+* `model` (str): Model size to use, defaults to small
+* `pretain` (str): Path to custom checkpoint, defaults to COCO weights
+* `use_seg` (bool): Segmentation model variation, defaults to False
+* `show` (bool): Displayable output window, defaults to False
+* `threshold` (float): Confidence threshold, default to 0.25
 
 ## Example
 
